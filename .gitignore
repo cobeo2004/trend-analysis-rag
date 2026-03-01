@@ -10,6 +10,10 @@
 !.yarn/releases
 !.yarn/versions
 
+# Agents
+.agents/
+.claude/
+.playwright-cli/
 # testing
 /coverage
 
@@ -39,3 +43,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# prisma
+src/generated/prisma
+*.db
+*.db-journal
+*.db-wal
+
+

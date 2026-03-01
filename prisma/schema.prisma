@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model TrendEntry {
+  id       Int    @id @default(autoincrement())
+  location String
+  year     Int
+  category String
+  rank     Int
+  query    String
+
+  @@index([location, year, category])
+  @@index([query])
+}
+
+model ProcessingStatus {
+  id        Int      @id @default(autoincrement())
+  status    String // "pending" | "processing" | "completed" | "failed"
+  total     Int      @default(0)
+  processed Int      @default(0)
+  error     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
